@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="resources/logo.png">
+    <title>Customers manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+
+        <div class="login">
+            <img src="resources/logo.png" alt="logo" class="login-logo">
+            <h2>Iniciar sesión</h2>
+            <input type="text" id="user" placeholder="Usuario">
+            <button id="btnLogin">Entrar</button>
+        </div>
+
+        <!-- Sidebar -->
+         <aside id="sidebar" class="sidebar oculto">
+            <h2>Customers manager</h2>
+            <button class="nav-btn" data-action="principal">Principal</button>
+            <button class="nav-btn" data-action="clientes">Clientes</button>
+            <button class="nav-btn" data-action="agregarCliente">Agregar cliente</button>
+            <button class="nav-btn" data-action="exportar">Exportar</button>
+            <button class="nav-btn" data-action="importar">Importar</button>
+            <button class="nav-btn" data-action="acercaDe">Acerca de</button>
+         </aside>
+
+         <!-- Main -->
+          <main class="main">
+
+            <header class="header oculto">
+                <button id="btnMenu" class="menu-btn">☰</button>
+                <h1>Resumen general</h1>
+                <button id="btnLogout" class="logout-btn">Salir</button>
+            </header>
+
+            <!-- Tarjetas -->
+             <section class="cards oculto">
+                <div class="card">
+                    <h3>Total de clientes</h3>
+                    <p id="totalClientes"></p>
+                </div>
+
+                <div class="card">
+                    <h3>Clientes activos</h3>
+                    <p id="totalActivos"></p>
+                </div>
+
+                <div class="card">
+                    <h3>Clientes inactivos</h3>
+                    <p id="totalInactivos"></p>
+                </div>
+             </section>
+
+             <!-- Panel de ultimos movimientos -->
+              <section class="movimientos oculto">
+                <h2>Últimos movimientos</h2>
+                <ul id="listaMovimientos"></ul>
+              </section>
+
+            <!-- Encabezado - clientes -->
+             <section class="clientes oculto">
+                <header class="section-header">
+                    <button class="menu-btn">☰</button>
+                    <h2>Lista de clientes</h2>
+                </header>
+                <p id="mensajeVacio" class="mensaje-vacio">No hay clientes registrados aún.</p>
+                <ul class="listaDeClientes">
+
+                </ul>
+             </section>
+
+             <!-- Agregar cliente -->
+              <section class="agregar-cliente oculto">
+                <header class="section-header">
+                    <button class="menu-btn">☰</button>
+                    <h2>Agregar cliente</h2>
+                </header>
+                <form id="formAgregarCliente">
+                    <div class="form-group">
+                        <label for="nombreCliente">Nombre:</label>
+                        <input type="text" id="nombreCliente" placeholder="Ingresa el nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefonoCliente">Télefono:</label>
+                        <input type="text" id="telefonoCliente" placeholder="Ingresa el télefono">
+                    </div>
+
+                    <button type="submit" class="btn-guardar">Guardar</button>
+                </form>
+              </section>
+
+              <!-- Exportar -->
+               <section class="exportar oculto">
+                <header class="section-header">
+                    <button class="menu-btn">☰</button>
+                    <h2>Exportar datos</h2>
+                </header>
+                <p class="mensaje-exportar">
+                    Asegúrate de exportar los datos cada cierto tiempo o después de cambios importantes 
+                    para evitar pérdidas y mantener un respaldo seguro.
+                </p>
+                <button class="btn-exportar">Exportar</button>
+               </section>
+
+               <!-- Importar -->
+                <section class="importar oculto">
+                    <header class="section-header">
+                        <button class="menu-btn">☰</button>
+                        <h2>Importar datos</h2>
+                    </header>
+                    <p class="mensaje-importar">
+                        Selecciona un archivo JSON previamente exportado para restaurar tus clientes y movimientos.
+                        Esto te permite continuar donde lo dejaste sin perder información.
+                    </p>
+                    <input type="file" id="fileImport" accept=".json" class="input-importar">
+                    <button class="btn-importar">Importar</button>
+                </section>
+
+                <!-- Acerca de -->
+                 <section class="acerca-de oculto">
+                    <header class="section-header">
+                        <button class="menu-btn">☰</button>
+                        <h2>Acerca de</h2>
+                    </header>
+                    <p>
+                        Esta aplicación permite gestionar clientes de manera sencilla, con funciones de agregar, eliminar, activar/inactivar y persistencia en localStorage.
+                    </p>
+
+                    <h3>Funcionamiento general</h3>
+                    <ul>
+                        <li>Login simulado: ingresar usuario para acceder al dashboard.</li>
+                        <li>Sidebar: navegar entre Clientes, Agregar Cliente, Exportar e Importar.</li>
+                        <li>Clientes: ver lista, eliminar o cambiar estado.</li>
+                        <li>Movimientos: panel con las últimas acciones realizadas.</li>
+                        <li>Exportar: descarga los clientes en formato JSON.</li>
+                        <li>Importar: carga clientes desde un archivo JSON.</li>
+                    </ul>
+
+                    <h3>Advertencia</h3>
+                    <p class="advertencia">
+                        Los datos se guardan únicamente en el almacenamiento local del navegador.  
+                        Pueden perderse si:
+                    </p>
+                    <ul class="advertencia">
+                        <li>Se borra la caché o el almacenamiento local del navegador.</li>
+                        <li>Se usa la aplicación en otro dispositivo o navegador distinto sin importar previamente los datos.</li>
+                        <li>Se reinstala o actualiza el navegador con limpieza de datos.</li>
+                    </ul>
+                    <p class="advertencia">
+                        El desarrollador no se hace responsable por la pérdida de información.
+                    </p>
+
+                    <div class="creditos">
+                        <p>Desarrollado por <strong>Mario Alberto Melgarejo Villaseñor</strong></p>
+                    </div>
+                 </section>
+
+                <!-- Mensajes -->
+                 <div id="notificaciones" class="notificaciones"></div>
+
+          </main>
+
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
