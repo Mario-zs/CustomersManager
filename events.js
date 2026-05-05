@@ -10,7 +10,7 @@ import { clientes, guardarDatos, registrarMovimiento, ultimosMovimientos } from 
 import { render } from "./ui.js";
 import { exportarDatos, importarDatos } from "./data.js";
 import { mostrarMensaje } from "./ui.js";
-
+ 
 // Login
 export function inicializarEventos(){
     const btnLogin = document.getElementById("btnLogin");

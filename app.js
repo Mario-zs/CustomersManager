@@ -7,6 +7,13 @@ import { renderizarEvent } from "./events.js";
 import { exportarEvent, importarEvent } from "./events.js";
 import { mostrarPrincipal } from "./ui.js";
 
+// Registrar worker
+if("serviceWorker" in navigator){
+    navigator.serviceWorker.register("./sw.js")
+    .then(() => console.log("Service Worker registrado"))
+    .catch((err) => console.error("Error al registrar SW ", err));
+}
+
 // Login
 function iniciarApp(){
     inicializarEventos();

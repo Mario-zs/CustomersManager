@@ -13,7 +13,7 @@ function ocultarTodo(){
     document.querySelector(".importar").classList.add("oculto");
     document.querySelector(".acerca-de").classList.add("oculto");
 }
-
+ 
 // Cerrar sesión
 export function logout(){
     ocultarTodo();
